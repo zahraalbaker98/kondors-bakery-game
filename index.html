@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kondor's Bakery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div id="startScreen" class="screen">
+
+        <h1>Kondor's Bakery</h1>
+
+        <p>Welcome to Kondor's Bakery!
+         Things have gotten a bit out of hand and now pastries (and who knows what else) are falling from the ceiling. 
+         It is up to you to clean up the messs! Yes, you!
+        </p>
+
+        <h2>How to Play</h2>
+
+            <h3>Catch</h3>
+
+            <p>Your mission is to collect as many baked goods as you can, use your left and right arrow keys to move.</p>
+            <p>Keep an eye on that special cupcake. It's worth extra points, so don't let it slip away!</p>
+
+            <br>
+
+            <h3>Avoid</h3>
+            
+            <p>Whatever you do, don't catch the kitchen knife! Touch it and it's an instant game over!</p>
+            <p>Not all baked goods are created equal. Each burnt item costs you 1 point. Catch 5 and it's game over!</p>
+            <p>Not everything that falls is worth catching! Stay away from the moldy items, they are a serious health hazard...Catch 3 and you're out.</p>
+
+        
+        <button id="playButton">Start Game</button>
+
+    </div>
+
+    <div id="gameScreen" class="screen"></div>
+    
+    <div id="resultScreen" class="screen"></div>
+
     <script src="index.js"></script>
 </body>
 </html>
