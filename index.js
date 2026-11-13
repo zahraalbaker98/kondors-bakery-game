@@ -20,3 +20,4 @@ startBtn.onclick = function(){
     startScreen.style.display = "none";
     gameScreen.style.display = "block";
 }
+

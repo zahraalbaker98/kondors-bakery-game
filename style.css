@@ -22,7 +22,7 @@ body{
 
 
 #gameScreen, #resultScreen, #winnerScreen, #loseScreen{
-    display: none;
+    display:none;
     
 }
 
