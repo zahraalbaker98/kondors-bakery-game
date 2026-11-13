@@ -3,11 +3,11 @@ class Player {
     constructor(){
         this.gameScreen = document.getElementById("gameScreen");
         this.element = document.createElement("div");
-        this.x = 0;
-        this.y = 50;
-        this.width = 60;
-        this.height = 80;
-        this.image = "./assets/playerForGameScreen.png";
+        this.x = 475;
+        this.y = 777;
+        this.width = 230;
+        this.height = 300;
+        this.image = "./assets/playerForGameScreen_transparent.png";
 
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
