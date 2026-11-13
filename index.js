@@ -15,3 +15,8 @@ const tryAgainBtn = document.getElementById("tryAgainBtn");
 
 let game;
 
+//adding functionality to the Start Game button, I want it to take me to the Game Screen
+startBtn.onclick = function(){
+    startScreen.style.display = "none";
+    gameScreen.style.display = "block";
+}
