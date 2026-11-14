@@ -4,13 +4,18 @@ body{
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    background-image:url("./assets/background/screen.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .screen{
     width: 60vw;
-    height: 85vh;
+    height: 55vh;
     border: 1px solid black;
     position: relative;
+    margin-top: -5vh;
 }
 
 #startScreen, #winnerScreen, #loseScreen{
@@ -20,16 +25,30 @@ body{
     align-items: center;
 }
 
+#startScreen {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
 #gameScreen, #winnerScreen, #loseScreen{
     display:none;
     
 }
 
+
 #gameScreen{
     background-image: url("./assets/background/gameScreenBackground.png");
-    background-size: cover;
+    background-size: 100% 100%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
     overflow: hidden;
+    position: relative;
 }
 
 

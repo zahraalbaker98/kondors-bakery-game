@@ -10,16 +10,18 @@ class Game{
         this.loseScreen = document.getElementById("loseScreen");
 
         //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
-        this.player = new Player();
         this.lives = 3;
         this.score = 0;
         this.fallingObjects = [];
+
     }
 
     //now adding the methods
     startGame(){
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
+        this.player = new Player();
+
 
         //setting an interval and making an objects fall every 2 seconds
         this.fallingObjectsInterval = setInterval(() => {
