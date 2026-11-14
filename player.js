@@ -7,7 +7,7 @@ class Player {
         this.y = 777;
         this.width = 230;
         this.height = 300;
-        this.image = "./assets/playerForGameScreen_transparent.png";
+        this.image = "./assets/player/playerForGameScreen_transparent.png";
 
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
@@ -41,4 +41,6 @@ class Player {
 
         }
     }
+
+    
     }

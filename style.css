@@ -27,7 +27,7 @@ body{
 }
 
 #gameScreen{
-    background-image: url("./assets/gameScreenBackground.png");
+    background-image: url("./assets/background/gameScreenBackground.png");
     background-size: cover;
 }
 

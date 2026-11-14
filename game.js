@@ -9,16 +9,21 @@ class Game{
         this.winnerScreen = document.getElementById("winnerScreen");
         this.loseScreen = document.getElementById("loseScreen");
 
-        //new game = new player, discard the old play, giving it 3 lives and a score of 0
+        //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
         this.player = new Player();
         this.lives = 3;
         this.score = 0;
+        this.fallingObjects = [];
     }
 
     //now adding the methods
     startGame(){
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
+
+        this.fallingObjectsInterval = setInterval(() => {
+            this.createFallingObjects()
+        }, 2000)
     }
 
     //moves the player, calling the variables, the player and the method
@@ -30,8 +35,23 @@ class Game{
             this.player.moveLeft();
         }
     }
-}
 
+    //creating a variable for a new falling object, the constructor of the class FallingObjects runs -> selects a random image and puts it on the game screen
+    //all the objects are added to the end of the new variable
+    createFallingObjects(){
+        const newObject =  new FallingObjects();
+        this.fallingObjects.push(newObject);
+    }
+
+    //calling the method+ accessing every object in the the fallingobjects array
+    moveObjects(){
+        this.fallingObjects.forEach((object) => {
+            object.moveObjects()
+        });
+    }
+
+
+}
 
 
 
