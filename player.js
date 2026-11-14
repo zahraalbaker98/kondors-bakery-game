@@ -28,7 +28,7 @@ class Player {
     moveLeft(){
         const minLeftGameScreen = 0;
         if(this.x > minLeftGameScreen){
-            this.x -= 17;
+            this.x -= 15;
             this.element.style.left = `${this.x}px`;
         }
     }
@@ -36,11 +36,11 @@ class Player {
     moveRight(){
         const maxRightGameScreen = this.gameScreen.offsetWidth - this.width;
         if(this.x < maxRightGameScreen){
-            this.x += 17;
+            this.x += 15;
             this.element.style.left = `${this.x}px`;
 
         }
     }
 
-    
+
     }

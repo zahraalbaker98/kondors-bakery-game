@@ -13,7 +13,7 @@ body{
     position: relative;
 }
 
-#startScreen, #resultScreen, #winnerScreen, #loseScreen{
+#startScreen, #winnerScreen, #loseScreen{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +21,7 @@ body{
 }
 
 
-#gameScreen, #resultScreen, #winnerScreen, #loseScreen{
+#gameScreen, #winnerScreen, #loseScreen{
     display:none;
     
 }

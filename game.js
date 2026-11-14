@@ -27,10 +27,12 @@ class Game{
         }, 2000)
 
         //another interval to make the objects move down, calling the method of moveObjects() and setting the speed at which the objects fall
-
-        this.gameLoopInternal = setInterval(() => {
+        //also adding the player movement, this makes the movement for smooth
+        this.gameLoopInterval = setInterval(() => {
             this.moveObjects();
-        }, 35);
+            this.playerMovement();
+
+        }, 30);
 
     }
 
@@ -93,7 +95,6 @@ function keyDownHandler(event){
     else if (event.key === "ArrowLeft"){
         leftPressed = true;
     }
-    game.playerMovement();
 }
 
 function keyUpHandler (event){

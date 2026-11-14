@@ -1,28 +1,17 @@
-//defining a constant variable of the bad objects with the path to each image
-//makinng these variables accessible to every function
-const badObjects = [
-    "./assets/enemies/burntCroissant.png", "./assets/enemies/knife.png", "./assets/enemies/moldyCake.png"
-];
+//defining a constant variable of the bad and good objects with the path to each image
+const badObjects = ["./assets/enemies/burntCroissant.png", "./assets/enemies/knife.png", "./assets/enemies/moldyCake.png"];
 
-//defining a constant variable of the good objects with the path to each image
-
-const goodObjects = [
-    "./assets/pastries/bolaBerlim.png",  "./assets/pastries/boloArroz.png", "./assets/pastries/milFolhas.png", 
-    "./assets/pastries/salameChocolate.png", "./assets/pastries/sparklyPastelNata.png", "./assets/pastries/tarteAmendoa.png",
-    "./assets/pastries/travesseiroSintra.png"
-];
+const goodObjects = [ "./assets/pastries/bolaBerlim.png",  "./assets/pastries/boloArroz.png", "./assets/pastries/milFolhas.png", "./assets/pastries/salameChocolate.png", "./assets/pastries/sparklyPastelNata.png", "./assets/pastries/tarteAmendoa.png", "./assets/pastries/travesseiroSintra.png"];
 
 
-
-
-//will create a parent class of the falling objects
+//will create a class of the falling objects
 
 class FallingObjects{
     constructor(){
         //which screen these objects will appear, create a div element, set the direction where the objects will appear from, the dimensions of the objs
         this.gameScreen = document.getElementById("gameScreen");
         this.element = document.createElement("div");
-        this.width = 95;
+        this.width = 105;
         this.height = 240;
         this.x = Math.floor(Math.random()*(this.gameScreen.offsetWidth - this.width));
         this.y = 0;
@@ -36,7 +25,7 @@ class FallingObjects{
         const randomBadObjIndex = Math.floor(Math.random() * badObjects.length);
         this.image = badObjects[randomBadObjIndex];
     
-        }else{
+        }else {
         const randomGoodObjIndex = Math.floor(Math.random() * goodObjects.length);
         this.image = goodObjects[randomGoodObjIndex];
         }
@@ -58,7 +47,7 @@ class FallingObjects{
 
 
     moveObjects(){
-        this.y +=10;
+        this.y +=11;
         this.element.style.top = `${this.y}px`;
     }
 }
