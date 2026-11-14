@@ -20,5 +20,25 @@ class Player {
     
         this.gameScreen.appendChild(this.element)
 
+    
     }
-}
+    //adding methods so that our player can move left and right
+    //in this case we use the x axis (horizontal line)
+    //but i don't want them to go outside of the gameScreen
+    moveLeft(){
+        const minLeftGameScreen = 0;
+        if(this.x > minLeftGameScreen){
+            this.x -= 17;
+            this.element.style.left = `${this.x}px`;
+        }
+    }
+    
+    moveRight(){
+        const maxRightGameScreen = this.gameScreen.offsetWidth - this.width;
+        if(this.x < maxRightGameScreen){
+            this.x += 17;
+            this.element.style.left = `${this.x}px`;
+
+        }
+    }
+    }
