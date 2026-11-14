@@ -1,7 +1,7 @@
 //defining a constant variable of the bad and good objects with the path to each image
 const badObjects = ["./assets/enemies/burntCroissant.png", "./assets/enemies/knife.png", "./assets/enemies/moldyCake.png"];
 
-const goodObjects = [ "./assets/pastries/bolaBerlim.png",  "./assets/pastries/boloArroz.png", "./assets/pastries/milFolhas.png", "./assets/pastries/salameChocolate.png", "./assets/pastries/sparklyPastelNata.png", "./assets/pastries/tarteAmendoa.png", "./assets/pastries/travesseiroSintra.png"];
+const goodObjects = [ "./assets/pastries/bolaBerlim.png", "./assets/pastries/milFolhas.png", "./assets/pastries/salameChocolate.png", "./assets/pastries/sparklyPastelNata.png", "./assets/pastries/travesseiroSintra.png"];
 
 
 //will create a class of the falling objects
@@ -11,8 +11,8 @@ class FallingObjects{
         //which screen these objects will appear, create a div element, set the direction where the objects will appear from, the dimensions of the objs
         this.gameScreen = document.getElementById("gameScreen");
         this.element = document.createElement("div");
-        this.width = 105;
-        this.height = 240;
+        this.width = 135;
+        this.height = 205;
         this.x = Math.floor(Math.random()*(this.gameScreen.offsetWidth - this.width));
         this.y = 0;
      
