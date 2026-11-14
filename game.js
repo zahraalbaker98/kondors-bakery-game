@@ -21,9 +21,17 @@ class Game{
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
 
+        //setting an interval and making an objects fall every 2 seconds
         this.fallingObjectsInterval = setInterval(() => {
             this.createFallingObjects()
         }, 2000)
+
+        //another interval to make the objects move down, calling the method of moveObjects() and setting the speed at which the objects fall
+
+        this.gameLoopInternal = setInterval(() => {
+            this.moveObjects();
+        }, 35);
+
     }
 
     //moves the player, calling the variables, the player and the method

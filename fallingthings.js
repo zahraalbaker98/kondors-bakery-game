@@ -22,8 +22,8 @@ class FallingObjects{
         //which screen these objects will appear, create a div element, set the direction where the objects will appear from, the dimensions of the objs
         this.gameScreen = document.getElementById("gameScreen");
         this.element = document.createElement("div");
-        this.width = 80;
-        this.height = 200;
+        this.width = 95;
+        this.height = 240;
         this.x = Math.floor(Math.random()*(this.gameScreen.offsetWidth - this.width));
         this.y = 0;
      

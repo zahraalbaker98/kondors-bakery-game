@@ -29,6 +29,7 @@ body{
 #gameScreen{
     background-image: url("./assets/background/gameScreenBackground.png");
     background-size: cover;
+    overflow: hidden;
 }
 
 
