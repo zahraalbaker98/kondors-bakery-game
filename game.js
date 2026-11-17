@@ -12,6 +12,7 @@ class Game{
         //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
         this.lives = 3;
         this.score = 0;
+        this.burntPastryCount = 0;
         this.fallingObjects = [];
 
     }
@@ -62,6 +63,35 @@ class Game{
         });
     }
 
+    //verify the collisions with badObjects and goodObjects
+    //first open a general loop that goes over every pastry and enemy and see if the current one has collided with the player
+
+    verifyCollision(){
+        for (let i = 0; i < this.fallingObjects.length; i++) {
+            let currentObject = this.fallingObjects[i];
+
+            if(this.player.didCollide(currentObject)){
+
+                if(currentObject.image === "./assets/enemies/knife.png"){
+                    this.lives = 0;
+                    this.gameOver();
+                }
+                else if (currentObject.image === "./assets/enemies/moldyCake.png"){
+                    this.lives -= 1;
+                    if (this.lives <= 0){
+                        this.gameOver();
+                    }
+                }
+                else if(currentObject.image === "./assets/enemies/burntCroissant.png"){
+                    this.burntPastryCount += 1;
+                    if(this.burntPastryCount >= 5){
+                        this.lives = 0;
+                        this.gameOver();
+                    }
+                }
+            }
+        }
+    }
 
 }
 
