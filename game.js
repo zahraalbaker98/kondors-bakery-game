@@ -31,9 +31,11 @@ class Game{
 
         //another interval to make the objects move down, calling the method of moveObjects() and setting the speed at which the objects fall
         //also adding the player movement, this makes the movement for smooth
+        //added the verify collision method
         this.gameLoopInterval = setInterval(() => {
             this.moveObjects();
             this.playerMovement();
+            this.verifyCollision()
 
         }, 30);
 
@@ -93,16 +95,27 @@ class Game{
                 else if (goodObjects.includes(currentObject.image)){
                     if(currentObject.image !== "./assets/pastries/sparklyPastelNata.png"){
                         this.score += 1;
-                    }
-                } else{
-                    this.score += 5;
+                    } else {
+                        this.score += 5;
                 }
             }
+            //remove the object after the collison
+            currentObject.element.remove();
+            this.fallingObjects.splice(i,1);
+            i--;
         }
     }
 
 }
 
+//define gameOver method
+
+gameOver(){
+    clearInterval(this.fallingObjectsInterval);
+    clearInterval(this.gameLoopInterval);
+    this.gameScreen.style.display = "none";
+    this.loseScreen.style.display = "block";
+}
 
 
 //button controls
