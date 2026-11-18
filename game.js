@@ -110,13 +110,13 @@ class Game{
 
 //define gameOver method
 
-gameOver(){
-    clearInterval(this.fallingObjectsInterval);
-    clearInterval(this.gameLoopInterval);
-    this.gameScreen.style.display = "none";
-    this.loseScreen.style.display = "block";
+    gameOver(){
+        clearInterval(this.fallingObjectsInterval);
+        clearInterval(this.gameLoopInterval);
+        this.gameScreen.style.display = "none";
+        this.loseScreen.style.display = "block";
+    }
 }
-
 
 //button controls
 
