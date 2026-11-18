@@ -89,6 +89,14 @@ class Game{
                         this.gameOver();
                     }
                 }
+                //now we are doing the goodobjects
+                else if (goodObjects.includes(currentObject.image)){
+                    if(currentObject.image !== "./assets/pastries/sparklyPastelNata.png"){
+                        this.score += 1;
+                    }
+                } else{
+                    this.score += 5;
+                }
             }
         }
     }
