@@ -43,6 +43,29 @@ class Player {
 
         }
     }
+    //need to add the did collide method in the player
+    didCollide(object){
+        //create a variable to store the size and position of the player and object, use the getBoundingClientRect to the size and the position of the element relative to the viewport
+        const playerRectangle = this.element.getBoundingClientRect();
+        const objectRectangle = object.element.getBoundingClientRect();
+
+        //checking if all of following are true - our first rectangle (A) is colliding with our second rectangle (B). 
+        if (
+              this.x < object.x + object.width &&    
+              this.x + this.width > object.x &&     
+              this.y < object.y + object.height &&   
+              this.y + this.height > object.y 
+        ){
+            //connects to my game class, where i mention the player and the didCollide method
+            //true - it runs all the coditions
+            //false - it doesn't because there's no need
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
 
 
     }
