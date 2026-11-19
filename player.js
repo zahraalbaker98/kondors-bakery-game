@@ -45,16 +45,16 @@ class Player {
     }
     //need to add the did collide method in the player
     didCollide(object){
-        //create a variable to store the size and position of the player and object, use the getBoundingClientRect to the size and the position of the element relative to the viewport
-        const playerRectangle = this.element.getBoundingClientRect();
-        const objectRectangle = object.element.getBoundingClientRect();
+        //trying to make the objects actually hit the drawing of the baker and not just the border
+        const topPaddingPlayer = 80;
 
-        //checking if all of following are true - our first rectangle (A) is colliding with our second rectangle (B). 
+        //checking if all of following are true - our first rectangle (A) is colliding with our second rectangle (B).
+        //  But I don't want the objects to be accessed through the sides that's why i added +40 and -40
         if (
-              this.x < object.x + object.width &&    
-              this.x + this.width > object.x &&     
-              this.y < object.y + object.height &&   
-              this.y + this.height > object.y 
+            this.x + 40 < object.x + object.width &&
+            this.x + this.width - 40 > object.x &&
+            this.y + topPaddingPlayer < object.y + object.height &&
+            this.y + topPaddingPlayer + 15 > object.y + object.height
         ){
             //connects to my game class, where i mention the player and the didCollide method
             //true - it runs all the coditions
