@@ -11,6 +11,9 @@ class Game{
 
         //selecting the score display
         this.scoreDisplay = document.getElementById("scoreDisplay");
+
+        //now onto selecting the burnt pastry count display
+        this.burntPastryCountDisplay = document.getElementById("burntPastryCountDisplay");
         
 
         //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
@@ -28,6 +31,7 @@ class Game{
         this.player = new Player();
 
          this.updateScore();
+         this.updateBurntPastryCount();
 
 
         //setting an interval and making an objects fall every 2 seconds
@@ -92,6 +96,11 @@ class Game{
                 }
                 else if(currentObject.image === "./assets/enemies/burntCroissant.png"){
                     this.burntPastryCount += 1;
+
+                    //calling the method to update the burnt pastry count
+
+                    this.updateBurntPastryCount();
+
                     if(this.burntPastryCount >= 5){
                         this.lives = 0;
                         this.gameOver();
@@ -120,6 +129,12 @@ class Game{
 
     updateScore(){
         this.scoreDisplay.innerText = `Score: ${this.score}`
+    }
+
+//defining the method that will update the burnt pastry count in html
+
+    updateBurntPastryCount(){
+        this.burntPastryCountDisplay.innerText = `Burnt Pastries: ${this.burntPastryCount} out of 5`;
     }
 
 //define gameOver method
