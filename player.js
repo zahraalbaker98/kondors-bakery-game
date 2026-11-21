@@ -19,6 +19,12 @@ class Player {
         this.element.style.backgroundImage = `url("${this.image}")`
         this.element.style.backgroundPosition = `center`
         this.element.style.backgroundSize = `cover`
+
+        //removing the previous player, before the new player is added (like when you start a new gane when you click on the try again button)
+
+        const oldPlayer = this.gameScreen.querySelector(".player");
+        if (oldPlayer) oldPlayer.remove();
+        this.element.classList.add("player");
     
         this.gameScreen.appendChild(this.element)
 

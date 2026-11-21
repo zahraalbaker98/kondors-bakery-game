@@ -33,6 +33,8 @@ class Game{
     startGame(){
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
+        this.loseScreen.style.display = "none";
+
         this.player = new Player();
 
          this.updateScore();
@@ -170,7 +172,21 @@ let game;
 startBtn.onclick = function (){
     game = new Game();
     game.startGame();
+
 }
+
+//when you click on the playAgain button, it will start a new game
+playAgainBtn.onclick = function (){
+    game = new Game();
+    game.startGame();
+}
+
+//when you click on the try again button, it will start a new game
+tryAgainBtn. onclick = function (){
+    game = new Game();
+    game.startGame();
+}
+
 
 //adding event listeners when the key is pressed down vs when it's not pressed
 document.addEventListener("keydown", keyDownHandler);
