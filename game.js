@@ -15,6 +15,11 @@ class Game{
         //now onto selecting the burnt pastry count display
         this.burntPastryCountDisplay = document.getElementById("burntPastryCountDisplay");
         
+        //selecting the lives display div 
+        this.livesDisplay = document.getElementById("livesDisplay");
+
+        //selecting the hearts class
+        this.hearts = document.getElementsByClassName("heart"),
 
         //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
         this.lives = 3;
@@ -90,6 +95,9 @@ class Game{
                 }
                 else if (currentObject.image === "./assets/enemies/moldyCake.png"){
                     this.lives -= 1;
+                    //remove the heart in the right
+                    this.hearts[this.hearts.length - 1].remove();
+
                     if (this.lives <= 0){
                         this.gameOver();
                     }
@@ -136,6 +144,7 @@ class Game{
     updateBurntPastryCount(){
         this.burntPastryCountDisplay.innerText = `Burnt Pastries: ${this.burntPastryCount} out of 5`;
     }
+
 
 //define gameOver method
 

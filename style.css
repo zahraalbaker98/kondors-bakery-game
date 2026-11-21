@@ -52,3 +52,16 @@ body{
 }
 
 
+#livesDisplay {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    right: 10px;
+}
+
+.heart {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
