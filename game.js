@@ -9,6 +9,10 @@ class Game{
         this.winnerScreen = document.getElementById("winnerScreen");
         this.loseScreen = document.getElementById("loseScreen");
 
+        //selecting the score display
+        this.scoreDisplay = document.getElementById("scoreDisplay");
+        
+
         //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
         this.lives = 3;
         this.score = 0;
@@ -22,6 +26,8 @@ class Game{
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
         this.player = new Player();
+
+         this.updateScore();
 
 
         //setting an interval and making an objects fall every 2 seconds
@@ -98,6 +104,8 @@ class Game{
                     } else {
                         this.score += 5;
                 }
+                //calling the method to update the score
+                this.updateScore();
             }
             //remove the object after the collison
             currentObject.element.remove();
@@ -107,6 +115,12 @@ class Game{
     }
 
 }
+
+//defining the method that will update the score in html
+
+    updateScore(){
+        this.scoreDisplay.innerText = `Score: ${this.score}`
+    }
 
 //define gameOver method
 
