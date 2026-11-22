@@ -28,14 +28,68 @@ body{
 }
 
 #startScreen {
-    background-color: #ffffff;
+    background-image: linear-gradient(rgba(38,18,8,0.55), rgba(38, 18,8,0.55)), url("./assets/background/startGameScreen.png");
+    background-size: 100% 100%;
+    background-position: center;
+    color: #fff5e4;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 25px 10px;
     box-sizing: border-box;
+}
+
+#startScreen h1 {
+    font-size: 70px;
+    color: #f6c25b;
+    margin: 0;
+    text-shadow: 2px 2px #1e0e06;
+}
+
+#startScreen h2 {
+    font-size: 50px;
+    color: #ffd573;
+    margin: 6px 0 2px 0;
+}
+
+#startScreen h3 {
+    font-size: 30px;
+    color: #98e690;
+    margin: 6px 0 2px 0;
+}
+
+#startScreen h3:last-of-type {
+    color: #ff7b7b;
+}
+
+#startScreen p {
+    font-size: 25px;
+    line-height: 1.2;
+    margin: 3px 0;
+    max-width: 90%;
+}
+
+p, h2, h3 {
+  text-shadow: 2px 2px 0px #000000;
+}
+
+#startBtn {
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    background-color: #f6c25b;
+    color: #3d1e0d;
+    padding: 6px 20px;
+    border: 2px solid #3d1e0d;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+#startBtn:hover {
+    background-color: #ffe28a;
+    border-color: #ffffff;
+    transform: translateY(-2px);
 }
 
 #gameScreen, #winnerScreen, #loseScreen{
