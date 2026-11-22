@@ -27,6 +27,13 @@ class Game{
         //selecting the loser screen image from html, because i want different scenarios to have different game over screen images
         this.loseScreenImage = document.getElementById("loseScreenImage")
 
+        //selecting the winner final score display from html
+        this.winnerFinalScoreDisplay = document.getElementById("winnerFinalScoreDisplay");
+
+        //selecting the loser final score display from html
+        this.loseFinalScoreDisplay = document.getElementById("loseFinalScoreDisplay");
+
+
         //giving it 3 lives, adding a timer,  a score of 0, 0 for burnt pastries and empty array for the falling objects
         this.lives = 3;
         this.timeRemaining = 60;
@@ -204,6 +211,9 @@ class Game{
         clearInterval(this.gameLoopInterval);
         clearInterval(this.timerInterval);
 
+        //adding the final lose score
+        this.loseFinalScoreDisplay.innerText = `Final Score: ${this.score}`;
+
         this.gameScreen.style.display = "none";
         this.loseScreen.style.display = "block";
     }
@@ -214,6 +224,9 @@ class Game{
         clearInterval(this.fallingObjectsInterval);
         clearInterval(this.gameLoopInterval);
         clearInterval(this.timerInterval);
+
+        //adding the final winner score
+         this.winnerFinalScoreDisplay.innerText = `Final Score: ${this.score}`;
 
         this.gameScreen.style.display = "none";
         this.winnerScreen.style.display = "block";
