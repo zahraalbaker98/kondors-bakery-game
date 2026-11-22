@@ -21,8 +21,12 @@ class Game{
         //selecting the hearts class
         this.hearts = document.getElementsByClassName("heart"),
 
-        //new game = new player, discard the old play, giving it 3 lives and a score of 0 and empty array for the falling objects
+        //selecting the timer display div from html
+        this.timerDisplay = document.getElementById("timerDisplay");
+
+        //giving it 3 lives, adding a timer,  a score of 0, 0 for burnt pastries and empty array for the falling objects
         this.lives = 3;
+        this.timeRemaining = 60;
         this.score = 0;
         this.burntPastryCount = 0;
         this.fallingObjects = [];
@@ -35,10 +39,24 @@ class Game{
         this.gameScreen.style.display = "block";
         this.loseScreen.style.display = "none";
 
+        Array.from(this.hearts).forEach(heart => {
+            heart.style.visibility = "visible";
+        });
+
         this.player = new Player();
 
          this.updateScore();
          this.updateBurntPastryCount();
+         this.updateTimer();
+
+        //adding a countdown timer, so it goes from 01:00 to 00:00
+        this.timerInterval = setInterval(() => {
+            this.timeRemaining--;
+            if(this.timeRemaining === 0){
+                this.gameWon()
+            }
+            this.updateTimer();
+        }, 1000);
 
 
         //setting an interval and making an objects fall every 2 seconds
@@ -97,8 +115,8 @@ class Game{
                 }
                 else if (currentObject.image === "./assets/enemies/moldyCake.png"){
                     this.lives -= 1;
-                    //remove the heart in the right
-                    this.hearts[this.hearts.length - 1].remove();
+                    //make the heart in the right hidden
+                    this.hearts[this.lives].style.visibility = "hidden";
 
                     if (this.lives <= 0){
                         this.gameOver();
@@ -141,6 +159,20 @@ class Game{
         this.scoreDisplay.innerText = `Score: ${this.score}`
     }
 
+
+//defining a method that will do a countdown for our method
+    updateTimer(){
+        const minutes = Math.floor(this.timeRemaining / 60)
+            .toString()
+            .padStart(2, "0");
+
+        const seconds = (this.timeRemaining % 60) // using the modulos operator to get the remaining seconds
+            .toString()
+            .padStart(2, "0");
+
+
+        this.timerDisplay.innerText = `${minutes}:${seconds}`;
+    }
 //defining the method that will update the burnt pastry count in html
 
     updateBurntPastryCount(){
@@ -153,10 +185,26 @@ class Game{
     gameOver(){
         clearInterval(this.fallingObjectsInterval);
         clearInterval(this.gameLoopInterval);
+        clearInterval(this.timerInterval);
+
         this.gameScreen.style.display = "none";
         this.loseScreen.style.display = "block";
     }
+
+    //define method for when the player wins
+
+    gameWon() {
+        clearInterval(this.fallingObjectsInterval);
+        clearInterval(this.gameLoopInterval);
+        clearInterval(this.timerInterval);
+
+        this.gameScreen.style.display = "none";
+        this.winnerScreen.style.display = "block";
+    }
 }
+
+
+
 
 //button controls
 
