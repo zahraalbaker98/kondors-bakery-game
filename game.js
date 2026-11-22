@@ -24,6 +24,9 @@ class Game{
         //selecting the timer display div from html
         this.timerDisplay = document.getElementById("timerDisplay");
 
+        //selecting the loser screen image from html, because i want different scenarios to have different game over screen images
+        this.loseScreenImage = document.getElementById("loseScreenImage")
+
         //giving it 3 lives, adding a timer,  a score of 0, 0 for burnt pastries and empty array for the falling objects
         this.lives = 3;
         this.timeRemaining = 60;
@@ -38,6 +41,7 @@ class Game{
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
         this.loseScreen.style.display = "none";
+        this.winnerScreen.style.display = "none";
 
         Array.from(this.hearts).forEach(heart => {
             heart.style.visibility = "visible";
@@ -59,10 +63,10 @@ class Game{
         }, 1000);
 
 
-        //setting an interval and making an objects fall every 2 seconds
+        //setting an interval and making an objects fall every 1.5 seconds
         this.fallingObjectsInterval = setInterval(() => {
             this.createFallingObjects()
-        }, 2000)
+        }, 1500)
 
         //another interval to make the objects move down, calling the method of moveObjects() and setting the speed at which the objects fall
         //also adding the player movement, this makes the movement for smooth
@@ -111,7 +115,7 @@ class Game{
 
                 if(currentObject.image === "./assets/enemies/knife.png"){
                     this.lives = 0;
-                    this.gameOver();
+                    this.gameOver("knife");
                 }
                 else if (currentObject.image === "./assets/enemies/moldyCake.png"){
                     this.lives -= 1;
@@ -119,7 +123,7 @@ class Game{
                     this.hearts[this.lives].style.visibility = "hidden";
 
                     if (this.lives <= 0){
-                        this.gameOver();
+                        this.gameOver("moldyCake");
                     }
                 }
                 else if(currentObject.image === "./assets/enemies/burntCroissant.png"){
@@ -131,7 +135,7 @@ class Game{
 
                     if(this.burntPastryCount >= 5){
                         this.lives = 0;
-                        this.gameOver();
+                        this.gameOver("burntPastry");
                     }
                 }
                 //now we are doing the goodobjects
@@ -182,7 +186,20 @@ class Game{
 
 //define gameOver method
 
-    gameOver(){
+    gameOver(reason){
+
+        if (reason === "knife") {
+            this.loseScreenImage.src = "./assets/background/gameOverKnife.jpeg";
+            this.loseScreenImage.style.display = "block";
+        } 
+        else if (reason === "moldyCake"){
+            this.loseScreenImage.src = "./assets/background/gameOverScreenMoldyCake.png";
+            this.loseScreenImage.style.display = "block";
+        }
+        else {
+            this.loseScreenImage.style.display = "none";
+        }
+
         clearInterval(this.fallingObjectsInterval);
         clearInterval(this.gameLoopInterval);
         clearInterval(this.timerInterval);
