@@ -204,7 +204,8 @@ class Game{
             this.loseScreenImage.style.display = "block";
         }
         else {
-            this.loseScreenImage.style.display = "none";
+            this.loseScreenImage.src = "./assets/background/gameOverBurntPastries.png";
+            this.loseScreenImage.style.display = "block";
         }
 
         clearInterval(this.fallingObjectsInterval);
