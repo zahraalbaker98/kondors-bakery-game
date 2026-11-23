@@ -200,3 +200,24 @@ p, h2, h3 {
     object-fit: fill;
     display: block;
 }
+
+#tryAgainBtn{
+    position: absolute;
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+        top: 94.45%;
+    left: 90%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: #f6c25b;
+    color: #3d1e0d;
+    padding: 4px 8px;
+    border: 2px solid #3d1e0d;
+    cursor: pointer;
+}
+
+#tryAgainBtn:hover {
+    background-color: #ffe28a;
+    border-color: #ffffff;
+    transform: translate(-50%, -2px);
+}
