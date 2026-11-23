@@ -201,6 +201,18 @@ p, h2, h3 {
     display: block;
 }
 
+#loseFinalScoreDisplay {
+    position:absolute;
+    font-size: 35px;
+    color: white;
+    top: 71%;
+    left: 61.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 1.15;
+    width: 85px;
+}
+
 #tryAgainBtn{
     position: absolute;
     font-family: 'VT323', monospace;
