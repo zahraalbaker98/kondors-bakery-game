@@ -37,7 +37,7 @@ body{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 25px 10px;
+    padding: 30px 10px;
     box-sizing: border-box;
 }
 
@@ -65,7 +65,7 @@ body{
 }
 
 #startScreen p {
-    font-size: 25px;
+    font-size: 28px;
     line-height: 1.2;
     margin: 3px 0;
     max-width: 90%;
