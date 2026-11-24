@@ -4,8 +4,10 @@ class Player {
         this.gameScreen = document.getElementById("gameScreen");
         this.element = document.createElement("div");
        
-        this.width = 230;
-        this.height = 300;
+        const scale = this.gameScreen.offsetWidth / 940;
+
+        this.width = 200 * scale;
+        this.height = 260 * scale;
 
         this.x = (this.gameScreen.offsetWidth - this.width) / 2;
         this.y = this.gameScreen.offsetHeight - this.height;
@@ -36,7 +38,7 @@ class Player {
     moveLeft(){
         const minLeftGameScreen = 0;
         if(this.x > minLeftGameScreen){
-            this.x -= 15;
+            this.x -= 15 * (this.gameScreen.offsetWidth / 940);
             this.element.style.left = `${this.x}px`;
         }
     }
@@ -44,7 +46,7 @@ class Player {
     moveRight(){
         const maxRightGameScreen = this.gameScreen.offsetWidth - this.width;
         if(this.x < maxRightGameScreen){
-            this.x += 15;
+            this.x += 15 * (this.gameScreen.offsetWidth / 940);
             this.element.style.left = `${this.x}px`;
 
         }
@@ -52,15 +54,16 @@ class Player {
     //need to add the did collide method in the player
     didCollide(object){
         //trying to make the objects actually hit the drawing of the baker and not just the border
-        const topPaddingPlayer = 80;
+        const topPaddingPlayer = this.height * 0.27;
+        const sidePaddingPlayer = this.width * 0.17;
 
         //checking if all of following are true - our first rectangle (A) is colliding with our second rectangle (B).
         //  But I don't want the objects to be accessed through the sides that's why i added +40 and -40
         if (
-            this.x + 40 < object.x + object.width &&
-            this.x + this.width - 40 > object.x &&
-            this.y + topPaddingPlayer < object.y + object.height &&
-            this.y + topPaddingPlayer + 15 > object.y + object.height
+        this.x + sidePaddingPlayer < object.x + object.width &&
+        this.x + this.width - sidePaddingPlayer > object.x &&
+        this.y + topPaddingPlayer < object.y + object.height &&
+        this.y + topPaddingPlayer + 15 > object.y + object.height
         ){
             //connects to my game class, where i mention the player and the didCollide method
             //true - it runs all the coditions

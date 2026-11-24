@@ -11,8 +11,12 @@ class FallingObjects{
         //which screen these objects will appear, create a div element, set the direction where the objects will appear from, the dimensions of the objs
         this.gameScreen = document.getElementById("gameScreen");
         this.element = document.createElement("div");
-        this.width = 125;
-        this.height = 190;
+
+        const scale = this.gameScreen.offsetWidth / 940;
+
+        this.width = 105 * scale;
+        this.height = 160 * scale;
+
         this.x = Math.floor(Math.random()*(this.gameScreen.offsetWidth - this.width));
         this.y = 0;
      
@@ -47,7 +51,7 @@ class FallingObjects{
 
 
     moveObjects(){
-        this.y +=11;
+        this.y += 10 * (this.gameScreen.offsetWidth / 940);
         this.element.style.top = `${this.y}px`;
     }
 }
