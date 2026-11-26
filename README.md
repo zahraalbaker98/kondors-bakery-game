@@ -17,7 +17,8 @@ If you lose the game, the loseScreen will be displayed but with an image reflect
 
 Used Google to find images;
 Used https://makebead.com/pixel-art-converter/ to pixelate images
-Used Canva (overlay images feature) to create the startScreen and the gameOver scenarios-
+Used Canva (overlay images feature) to create the startScreen and the gameOver scenarios
+Used https://freesound.org/ to find sound effects and https://clideo.com/ to make the sounds shorter
 
 
 
