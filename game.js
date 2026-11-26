@@ -41,6 +41,12 @@ class Game{
         this.burntPastryCount = 0;
         this.fallingObjects = [];
 
+        this.moldyCakeSound = new Audio("./assets/audio/moldycake.wav");
+        this.knifeHitSound = new Audio ("./assets/audio/kitchenknife.wav");
+        this.burntPastrySound = new Audio ("./assets/audio/burntpastry.wav");
+        this.pastelNataSound = new Audio ("./assets/audio/pasteldenata.wav");
+        this.goodPastries = new Audio ("./assets/audio/872491-heyheytheree-pickup-cozy-game-sfx-free_hsHY7KAk.wav");
+
     }
 
     //now adding the methods
@@ -121,10 +127,13 @@ class Game{
             if(this.player.didCollide(currentObject)){
 
                 if(currentObject.image === "./assets/enemies/knife.png"){
+                    this.knifeHitSound.play();
                     this.lives = 0;
                     this.gameOver("knife");
                 }
                 else if (currentObject.image === "./assets/enemies/moldyCake.png"){
+                    this.moldyCakeSound.play();
+
                     this.lives -= 1;
                     //make the heart in the right hidden
                     this.hearts[this.lives].style.visibility = "hidden";
@@ -134,6 +143,7 @@ class Game{
                     }
                 }
                 else if(currentObject.image === "./assets/enemies/burntCroissant.png"){
+                    this.burntPastrySound.play()
                     this.burntPastryCount += 1;
 
                     //calling the method to update the burnt pastry count
@@ -148,8 +158,10 @@ class Game{
                 //now we are doing the goodobjects
                 else if (goodObjects.includes(currentObject.image)){
                     if(currentObject.image !== "./assets/pastries/sparklyPastelNata.png"){
+                        this.goodPastries.play();
                         this.score += 1;
                     } else {
+                        this.pastelNataSound.play();
                         this.score += 5;
                 }
                 //calling the method to update the score
