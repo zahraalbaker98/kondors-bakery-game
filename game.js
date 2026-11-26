@@ -41,12 +41,15 @@ class Game{
         this.burntPastryCount = 0;
         this.fallingObjects = [];
 
+        //sound effects for the falling objects
+
         this.moldyCakeSound = new Audio("./assets/audio/moldycake.wav");
         this.knifeHitSound = new Audio ("./assets/audio/kitchenknife.wav");
         this.burntPastrySound = new Audio ("./assets/audio/burntpastry.wav");
         this.pastelNataSound = new Audio ("./assets/audio/pasteldenata.wav");
         this.goodPastries = new Audio ("./assets/audio/872491-heyheytheree-pickup-cozy-game-sfx-free_hsHY7KAk.wav");
 
+    
     }
 
     //now adding the methods
@@ -82,7 +85,6 @@ class Game{
         }, 1500)
 
         //another interval to make the objects move down, calling the method of moveObjects() and setting the speed at which the objects fall
-        //also adding the player movement, this makes the movement for smooth
         //added the verify collision method
         this.gameLoopInterval = setInterval(() => {
             this.moveObjects();
@@ -255,7 +257,11 @@ const startBtn = document.getElementById("startBtn");
 const playAgainBtn = document.getElementById("playAgainBtn");
 const tryAgainBtn = document.getElementById("tryAgainBtn");
 
+
+
 let game;
+
+
 
 //when you click on the start btn (which has an event listener),
 //it will create a new game and start a game ->its using the class and the method 

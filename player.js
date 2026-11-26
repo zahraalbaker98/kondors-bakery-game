@@ -54,8 +54,8 @@ class Player {
     //need to add the did collide method in the player
     didCollide(object){
         //trying to make the objects actually hit the drawing of the baker and not just the border
-        const topPaddingPlayer = this.height * 0.27;
-        const sidePaddingPlayer = this.width * 0.17;
+        const topPaddingPlayer = this.height * 0.25;
+        const sidePaddingPlayer = this.width * 0.30;
 
         //checking if all of following are true - our first rectangle (A) is colliding with our second rectangle (B).
         //  But I don't want the objects to be accessed through the sides that's why i added +40 and -40
